@@ -4,24 +4,18 @@ class Paddle(Turtle):
 
     def __init__(self, pos):
         super().__init__()
-        self.paddle = Turtle()
-        self.paddle.color("white")
-        self.paddle.shape("square")
-        self.paddle.shapesize(stretch_len=1,stretch_wid=4)
-        self.paddle.penup()
-        self.paddle.goto(pos)
+        self.shape("square")
+        self.color("white")
+        self.shapesize(stretch_wid=4, stretch_len=1)  # Width and length corrected
+        self.penup()
+        self.goto(pos)
 
     def go_up(self):
-        new_Y = self.paddle.ycor()+20
-        self.paddle.goto(self.paddle.xcor(), new_Y)
+        if self.ycor() < 250:
+            new_y = self.ycor() + 20
+            self.goto(self.xcor(), new_y)
 
     def go_down(self):
-        new_Y = self.paddle.ycor()-20
-        self.paddle.goto(self.paddle.xcor(), new_Y)
-        
-        
-    
-
-
-
-
+        if self.ycor() > -250:
+            new_y = self.ycor() - 20
+            self.goto(self.xcor(), new_y)
