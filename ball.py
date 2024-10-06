@@ -21,9 +21,10 @@ class Ball(Turtle):
         
     def bounce_x(self):
         self.x_move *= -1
-        self.move_speed-=0.05
+        self.move_speed*=0.9
 
     def reset_position(self):
         self.move_speed = 0.2
         self.goto(0, 0)  # Reset ball to the center
         self.bounce_x()  # Change ball direction after reset
+
